@@ -3,7 +3,6 @@ package com.knz21.numeral.ui.theme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -14,10 +13,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.knz21.numeral.event.EventBus
 import com.knz21.numeral.event.StartDetail
-import com.knz21.numeral.ui.theme.detail.NumeralDetailScreen
-import com.knz21.numeral.ui.theme.detail.NumeralDetailViewModel
-import com.knz21.numeral.ui.theme.list.NumeralListScreen
-import com.knz21.numeral.ui.theme.list.NumeralListViewModel
+import com.knz21.numeral.ui.detail.NumeralDetailScreen
+import com.knz21.numeral.ui.detail.NumeralDetailViewModel
+import com.knz21.numeral.ui.list.NumeralListScreen
+import com.knz21.numeral.ui.list.NumeralListViewModel
 
 @Composable
 fun NumeralApp() {

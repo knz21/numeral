@@ -1,4 +1,4 @@
-package com.knz21.numeral.ui.theme.detail
+package com.knz21.numeral.ui.detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
