@@ -19,7 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.knz21.numeral.data.repository.NumeralType
+import com.knz21.numeral.NumeralType
 import com.knz21.numeral.event.EventBus
 import com.knz21.numeral.event.StartDetail
 import com.knz21.numeral.ui.detail.NumeralDetailScreen

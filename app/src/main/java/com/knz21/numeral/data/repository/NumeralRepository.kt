@@ -1,5 +1,6 @@
 package com.knz21.numeral.data.repository
 
+import com.knz21.numeral.NumeralType
 import com.knz21.numeral.data.largeKanji
 import com.knz21.numeral.data.shortScale
 import com.knz21.numeral.data.smallKanji

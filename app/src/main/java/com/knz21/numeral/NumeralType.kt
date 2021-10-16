@@ -1,4 +1,4 @@
-package com.knz21.numeral.data.repository
+package com.knz21.numeral
 
 enum class NumeralType(val displayName: String) {
     LargeKanji("大数"),
