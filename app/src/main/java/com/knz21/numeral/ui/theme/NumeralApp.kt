@@ -1,10 +1,12 @@
 package com.knz21.numeral.ui.theme
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -37,9 +39,8 @@ fun NumeralApp() {
                 navController.navigate("${Destinations.detail}/${it.type}/${it.index}")
             }
             Column {
-                LazyRow {
-                    items(NumeralType.values().size) {
-                        val type = NumeralType.values()[it]
+                Row(modifier = Modifier.horizontalScroll(rememberScrollState())) {
+                    NumeralType.values().forEach { type ->
                         Box(
                             modifier = Modifier.clickable(
                                 onClick = { navController.navigate("${Destinations.list}/${type.name}") },

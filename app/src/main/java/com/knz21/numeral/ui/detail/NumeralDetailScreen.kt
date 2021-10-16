@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.math.abs
@@ -23,8 +26,9 @@ fun NumeralDetailScreen(
 
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
             .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
     ) {
         if (numeral.read.isNotEmpty()) {
             Text(
@@ -42,7 +46,8 @@ fun NumeralDetailScreen(
         )
         Text(
             text = createNumber(numeral.exponent),
-            modifier = Modifier.padding(top = 16.dp)
+            style = MaterialTheme.typography.body1,
+            modifier = Modifier.padding(top = 16.dp, bottom = 16.dp)
         )
     }
 }
@@ -59,7 +64,11 @@ fun NumberWithExponent(
         )
         Text(
             text = exponent.toString(),
-            style = MaterialTheme.typography.body2
+            style = TextStyle(
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Medium
+            ),
+            modifier = Modifier.padding(start = 2.dp)
         )
     }
 }
