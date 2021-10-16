@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.abs
 
 @Composable
 fun NumeralDetailScreen(
@@ -25,10 +26,12 @@ fun NumeralDetailScreen(
             .padding(16.dp)
             .fillMaxWidth()
     ) {
-        Text(
-            text = numeral.read,
-            style = MaterialTheme.typography.body1
-        )
+        if (numeral.read.isNotEmpty()) {
+            Text(
+                text = numeral.read,
+                style = MaterialTheme.typography.body1
+            )
+        }
         Text(
             text = numeral.name,
             style = MaterialTheme.typography.h3
@@ -62,4 +65,23 @@ fun NumberWithExponent(
 }
 
 private fun createNumber(exponent: Int): String =
-    "1${mutableListOf<Int>().apply { repeat(exponent) { add(0) } }.joinToString("")}"
+    if (exponent >= 0) {
+        "1${
+            mutableListOf<String>().apply {
+                repeat(exponent) {
+                    if ((exponent + 1 - it) % 3 == 1) add(",")
+                    add("0")
+                }
+            }.joinToString("")
+        }"
+    } else {
+        "${
+            mutableListOf<String>().apply {
+                repeat(abs(exponent)) {
+                    add("0")
+                    if (it == 0) add(".")
+                }
+            }.joinToString("")
+        }1"
+    }
+

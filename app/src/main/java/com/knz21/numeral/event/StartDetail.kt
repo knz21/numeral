@@ -1,3 +1,5 @@
 package com.knz21.numeral.event
 
-class StartDetail(val index: Int): EventBus.Event
+import com.knz21.numeral.data.repository.NumeralType
+
+class StartDetail(val type: NumeralType, val index: Int): EventBus.Event

@@ -25,7 +25,9 @@ fun NumeralListScreen(
     numeralListViewModel: NumeralListViewModel
 ) {
     val numerals by numeralListViewModel.numerals.collectAsState()
-    val onClick: (index: Int) -> Unit = { numeralListViewModel.viewModelScope.launch { EventBus.post(StartDetail(it)) } }
+    val onClick: (index: Int) -> Unit = {
+        numeralListViewModel.viewModelScope.launch { EventBus.post(StartDetail(numeralListViewModel.type, it)) }
+    }
     LazyColumn {
         items(numerals.size, key = { numerals[it].name }) { index ->
             NumeralRow(index, numerals[index], onClick)
@@ -51,11 +53,13 @@ fun NumeralRow(
     ) {
         Text(
             text = numeral.name,
-            style = MaterialTheme.typography.h4
+            style = MaterialTheme.typography.h5
         )
-        Text(
-            text = "（${numeral.read}）",
-            style = MaterialTheme.typography.body1
-        )
+        if (numeral.read.isNotEmpty()) {
+            Text(
+                text = "（${numeral.read}）",
+                style = MaterialTheme.typography.body1
+            )
+        }
     }
 }
