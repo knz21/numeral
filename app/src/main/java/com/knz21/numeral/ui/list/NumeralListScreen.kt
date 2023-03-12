@@ -39,7 +39,7 @@ fun NumeralListScreen(
 @Composable
 fun NumeralRow(
     index: Int = -1,
-    numeral: Numeral = Numeral("一", "いち", 0),
+    numeral: Numeral = Numeral("一", 0, "いち"),
     onClick: (index: Int) -> Unit = {}
 ) {
     Row(
